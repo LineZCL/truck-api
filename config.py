@@ -1,0 +1,5 @@
+import os
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:///truck.db'
+SQLALCHEMY_ECHO = True
+SQLALCHEMY_TRACK_MODIFICATIONS = True
