@@ -28,13 +28,13 @@ class Driver(db.Model):
         is_active = False
         db.session.commit()
 
-    def mappingJsonToModel(self, json):
+    def mapping_json_to_model(self, json):
         self.id = json["id"] if "id" in json else None 
         self.name = json["name"] if "name" in json else None 
         self.age = json["age"] if "age" in json else None 
         self.own_vehicle = json["own_vehicle"] if "own_vehicle" in json else None 
-        self.genre = self.own_vehicle = json["genre"] if "genre" in json else None 
-        self.cnh_type = self.own_vehicle = json["cnh_type"] if "cnh_type" in json else None 
-        self.vehicle_type_id = self.own_vehicle = json["vehicle_type_id"] if "vehicle_type_id" in json else None 
+        self.genre = json["genre"] if "genre" in json else None 
+        self.cnh_type = json["cnh_type"] if "cnh_type" in json else None 
+        self.vehicle_type_id = json["vehicle_type_id"] if "vehicle_type_id" in json else None 
     
 db.create_all()

@@ -19,4 +19,5 @@ class HttpStatus(Enum):
     success = 200, 
     server_error = 500, 
     client_error = 400, 
+    not_found = 404, 
     unprocessable_entity = 422

@@ -14,7 +14,7 @@ class DriverService:
             return ResponseHelper(Status.error, message = errors)
         
         driver = Driver() 
-        driver.mappingJsonToModel(json) 
+        driver.mapping_json_to_model(json) 
         driver.insert_or_update()
         return ResponseHelper(Status.success, object = driver_schema.dump(driver).data) 
     
