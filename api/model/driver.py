@@ -28,7 +28,7 @@ class Driver(db.Model):
         is_active = False
         db.session.commit()
 
-    def mappingJsonToModel(self, json, isCreate = True):
+    def mappingJsonToModel(self, json):
         self.id = json["id"] if "id" in json else None 
         self.name = json["name"] if "name" in json else None 
         self.age = json["age"] if "age" in json else None 

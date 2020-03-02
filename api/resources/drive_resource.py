@@ -9,7 +9,18 @@ class DriverResource(Resource):
         if not json_data: 
             return ResponseHelper(Status.error, message = "No Input data").getHttpResponse(), HttpStatus.client_error.value
         
-        response = DriverService().create_driver(json_data) 
+        response = DriverService().save_driver(json_data) 
+        
+        if response.status == Status.error:
+            return response.getHttpResponse(), HttpStatus.unprocessable_entity.value 
+        print(HttpStatus.success.value)
+        return response.getHttpResponse()
+
+    def put(self): 
+        json_data = request.get_json(force = True)
+        if not json_data: 
+            return ResponseHelper(Status.error, message = "No Input data").getHttpResponse(), HttpStatus.client_error.value
+        response = DriverService().save_driver(json_data) 
         
         if response.status == Status.error:
             return response.getHttpResponse(), HttpStatus.unprocessable_entity.value 
