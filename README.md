@@ -65,3 +65,6 @@ Teste backend, desenvolvido em Python onde a idéia era a construção de uma AP
 -- PUT: Faz checkout nesta rota
 
 
+-/route
+  --GET: Busca todas as rotas ativas
+	

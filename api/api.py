@@ -5,6 +5,7 @@ from .resources.driver_own_vehicle_resource import DriverOwnVehicleResource
 from .resources.driver_no_charge_resource import DriverNoChargeResource
 from api.resources.route_checkin_resource import RouteCheckinResource
 from api.resources.route_checkout_resource import RouteCheckoutResource
+from api.resources.route_resource import RouteResource
 
 
 blueprint = Blueprint('api', __name__)
@@ -16,3 +17,4 @@ api.add_resource(DriverOwnVehicleResource, "/driver/own-vehicle")
 api.add_resource(DriverNoChargeResource, "/driver/no-charge")
 api.add_resource(RouteCheckinResource, "/route/checkin")
 api.add_resource(RouteCheckoutResource, "/route/checkout/<int:id>")
+api.add_resource(RouteResource, '/route')

@@ -31,8 +31,11 @@ class DriverService:
         drivers = [] 
         
         for route in routes:
-            drivers.append(Driver.query.get(route.driver_id)) 
+            drivers.append(driver_by_id(route.driver_id)) 
 
         return drivers_schema.dump(drivers) 
+
+    def get_driver_by_id(self, id): 
+        return Driver.query.get(id)
 
         
