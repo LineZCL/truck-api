@@ -2,7 +2,6 @@
 from api import app
  
 #import models 
-from api.model.vehicle_type import VehicleType
 from api.model.terminal import Terminal
 from api.model.driver import Driver
 from api.model.route import Route

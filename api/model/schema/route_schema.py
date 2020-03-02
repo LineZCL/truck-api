@@ -1,5 +1,7 @@
-from api import ma
 from marshmallow import Schema, fields, pre_load, validate
+from flask_marshmallow import Marshmallow
+
+ma = Marshmallow()
 
 class RouteSchema(ma.Schema):
     id = fields.Integer() 
