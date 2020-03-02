@@ -11,5 +11,5 @@ class RouteCheckinResource(Resource):
         response = RouteService().checkin(json_data) 
         if response.status == Status.error:
             return response.getHttpResponse(), HttpStatus.unprocessable_entity.value 
-        print(HttpStatus.success.value)
         return response.getHttpResponse()
+    
