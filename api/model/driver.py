@@ -7,7 +7,7 @@ class Driver(db.Model):
     age = db.Column(db.Integer) 
     own_vehicle = db.Column(db.Boolean, nullable = False)
     genre = db.Column(db.String(10))
-    cnh = db.Column(db.String(1))
+    cnh_type = db.Column(db.String(1))
     vehicle_type_id = db.Column(db.Integer, db.ForeignKey('vehicle_type.id'),
         nullable = False)
     vehicle_type = db.relationship('VehicleType')
@@ -21,16 +21,15 @@ class Driver(db.Model):
     def inative(self): 
         is_active = False
         db.session.commit()
-class Genre(Enum): 
-    female = 1 
-    male = 2
-    other = 3
 
-class CNH(Enum): 
-    A = 1
-    B = 2 
-    C = 3
-    D = 4 
-    E = 5
-
+    def mappingJsonToModel(self, json):
+        self.id = None if not json["id"] else json["id"]
+        self.name = json["name"]
+        self.age = json["age"]
+        self.own_vehicle = json["own_vehicle"] 
+        self.genre = json["genre"]
+        self.cnh_type = json["cnh_type"]
+        self.vehicle_type_id = json["vehicle_type_id"] 
+        self.is_active = json["is_active"]
+    
 db.create_all()

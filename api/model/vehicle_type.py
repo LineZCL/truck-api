@@ -16,6 +16,10 @@ class VehicleType(db.Model):
             for truck in trucks_types_name:
                 VehicleType(name = truck).insert_or_update()
 
+    def mappingJsonToModel(self, json):   
+        self.id = None if not json["id"] else json["id"]
+        self.name = json["name"]
+    
 
 db.create_all()
 VehicleType.vehycles_type_seeder()

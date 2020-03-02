@@ -23,5 +23,15 @@ class Route(db.Model):
     def inative(self): 
         is_active = False
         db.session.commit()
+
+    def mappingJsonToModel(self, json):
+        self.id = None if not json["id"] else json["id"]
+        self.departure_time = json["departure_time"]
+        self.arrive_time = json["arrive_time"]
+        self.is_loaded = json["is_loaded"] 
+        self.origin_id = json["origin_id"]
+        self.destiny_id = json["destiny_id"]
+        self.driver_id = json["driver_id"] 
+        self.is_active = json["is_active"]
 db.create_all() 
     

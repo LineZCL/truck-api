@@ -28,5 +28,12 @@ class Terminal(db.Model):
             terminal4 = Terminal(name = 'Rio de Janeiro', latitude = '-22.936132', longitude = '-43.371208')
             terminal4.insert_or_update()
 
+    def mappingJsonToModel(self, json):
+        self.id = None if not json["id"] else json["id"]
+        self.name = json["name"]
+        self.longitude = json["longitude"]
+        self.latitude = json["latitude"] 
+        self.is_active = json["is_active"]
+
 db.create_all() 
 Terminal.terminal_seeder()
